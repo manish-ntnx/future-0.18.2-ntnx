@@ -19,6 +19,7 @@ class FixUnicode(BaseFix):
 
     unicode_tree = RefactoringTool(fixer_names=[]).refactor_string("""
 # Override unicode for py3 to return str
+import sys
 if sys.version_info[0] == 3:
     unicode = str
 """, name="test")

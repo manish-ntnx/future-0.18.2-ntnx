@@ -41,7 +41,8 @@ class FixCstringIo(BaseFix):
         power< libname="StringIO" trailer<'.' attribute=any > trailer<'(' ')' > >
         """
 
-    stringio_tree = RefactoringTool(fixer_names=[]).refactor_string("""if sys.version_info[0] < 3:
+    stringio_tree = RefactoringTool(fixer_names=[]).refactor_string("""import sys
+if sys.version_info[0] < 3:
   from cStringIO import StringIO as StringIO
 else:
   from io import BytesIO as StringIO

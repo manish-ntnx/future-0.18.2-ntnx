@@ -17,6 +17,7 @@ class FixChr(BaseFix):
 
     chr_tree = RefactoringTool(fixer_names=[]).refactor_string("""
 # Override chr for py3 to return byte-str (same as py2)
+import sys
 _chr = lambda arg: chr(arg) if sys.version_info[0] < 3 else bytes([arg])
 """, name="test")
 
