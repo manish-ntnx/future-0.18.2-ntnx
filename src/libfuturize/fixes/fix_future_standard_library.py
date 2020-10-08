@@ -18,7 +18,10 @@ class FixFutureStandardLibrary(FixImports):
     run_order = 8
 
     def transform(self, node, results):
-        result = super(FixFutureStandardLibrary, self).transform(node, results)
-        # TODO: add a blank line between any __future__ imports and this?
-        touch_import_top(u'future', u'standard_library', node)
+        result=None
+        if 'cStringIO' not in str(results.get('module_name')):
+          result = super(FixFutureStandardLibrary, self).transform(node, results)
+          # TODO: add a blank line between any __future__ imports and this?
+          touch_import_top(u'future', u'standard_library', node)
         return result
+        
