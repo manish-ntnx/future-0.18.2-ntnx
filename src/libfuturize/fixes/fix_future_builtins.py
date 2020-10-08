@@ -33,6 +33,10 @@ replaced_builtin_fns = '''filter map zip
                        # the fixers the wrong way around, perhaps ignoring the
                        # run_order class attribute below ...)
 
+disable_builtins_import = ['str', 'chr', 'ord']
+
+
+
 expression = '|'.join(["name='{0}'".format(name) for name in replaced_builtin_fns])
 
 
@@ -55,5 +59,6 @@ class FixFutureBuiltins(fixer_base.BaseFix):
 
     def transform(self, node, results):
         name = results["name"]
-        touch_import_top(u'builtins', name.value, node)
+        if name.value not in disable_builtins_import:
+          touch_import_top(u'builtins', name.value, node)
         # name.replace(Name(u"input", prefix=name.prefix))
