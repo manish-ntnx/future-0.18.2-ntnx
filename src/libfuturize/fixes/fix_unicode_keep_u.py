@@ -11,11 +11,11 @@ of the porting task.
 from lib2to3.pgen2 import token
 from lib2to3 import fixer_base
 
-_mapping = {u"unichr" : u"chr", u"unicode" : u"str"}
+_mapping = {u"unichr" : u"chr"}
 
 class FixUnicodeKeepU(fixer_base.BaseFix):
     BM_compatible = True
-    PATTERN = "'unicode' | 'unichr'"
+    PATTERN = "'unichr'"
 
     def transform(self, node, results):
         if node.type == token.NAME:
