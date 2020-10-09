@@ -1,3 +1,9 @@
+#
+# Author: samir.das@nutanix.com, vaibhav.gupta@nutanix.com
+#         manish.singh@nutanix.com
+#
+# Add a prefix 'b' to the strings starting with `\x`.
+
 from lib2to3.fixer_base import BaseFix
 from lib2to3.refactor import RefactoringTool
 from lib2to3.fixer_util import (Leaf, syms, token, Call,
@@ -24,7 +30,6 @@ class FixPrefixB(BaseFix):
         #match = self.pattern.match(node, results)
         if node.type == token.STRING:
             if "\\x" in node.value:
-                print("---->2: %s" % results)
                 return results
 
     def find_insert_pos(self, node):

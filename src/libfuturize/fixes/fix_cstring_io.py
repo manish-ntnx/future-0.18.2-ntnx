@@ -1,3 +1,14 @@
+#
+# Author: samir.das@nutanix.com, vaibhav.gupta@nutanix.com,
+#         manish.singh@nutanix.com
+#
+# Handles StringIO imports.
+# Converts import statemenst like these - from cStringIO import StringIO
+# if sys.versio_info[0] < 3:
+#   from cStringIO import StringIO
+# else:
+#   from io import StringIO
+
 from lib2to3.fixer_base import BaseFix
 from lib2to3.refactor import RefactoringTool
 from lib2to3.fixer_util import (Leaf, syms, token, Call,

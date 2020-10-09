@@ -1,3 +1,14 @@
+#
+# Author: samir.das@nutanix.com, vaibhav.gupta@nutanix.com,
+#         manish.singh@nutanix.com
+#
+# Python 3 has removed unicode function, as by default strings in Py3 are
+# unicode. Running vanilla version of futurize changes occurrences of "unicode"
+# to "str" which is not compatible to Python 2.
+# This class is compatibility layer between Py2 & Py3 by adding below lines:-
+# if sys.version_info[0] == 3:
+#   unicode = str
+
 from lib2to3.fixer_base import BaseFix
 from lib2to3.refactor import RefactoringTool
 from lib2to3.fixer_util import (Leaf, syms, token, Call,
