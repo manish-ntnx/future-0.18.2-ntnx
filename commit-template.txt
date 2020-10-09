@@ -2,6 +2,5 @@ Reviewers               :
 Tickets resolved        :
 Tickets related         :
 Tests run               :
-Target release          :
 Breaks rolling upgrade  :
 Code review URL         :
