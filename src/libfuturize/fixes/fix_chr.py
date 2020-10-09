@@ -1,3 +1,22 @@
+#
+# Author: samir.das@nutanix.com, vaibhav.gupta@nutanix.com,
+#         manish.singh@nutanix.com
+#
+# Python 3
+# chr(i) - Return the string representing a character whose Unicode code point
+# is the integer i. For example, chr(97) returns the string 'a', while
+# chr(8364) returns the string '€'.
+#
+# Python 2
+# chr(i) - Return a string of one character whose ASCII code is the integer i.
+# For example, chr(97) returns the string 'a'. The argument must be in the
+# range [0..255], inclusive; ValueError will be raised if i is outside that
+# range.
+#
+# In Python 3, string is by default unicode whereas in Python 2 string is bytes
+# To make the code base compatible between both Py2/Py3, override chr for py3
+# to return byte string.
+
 from lib2to3.fixer_base import BaseFix
 from lib2to3.refactor import RefactoringTool
 from lib2to3.fixer_util import (Leaf, syms, token, Call,
