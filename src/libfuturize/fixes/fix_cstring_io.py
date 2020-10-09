@@ -60,11 +60,9 @@ else:
         if match and node.type in (syms.import_from, syms.import_name):
             if "modulename" in results:
                 name = results.get("modulename")
-            print("---->1: %s" % results)
             return results
         if node.type == token.STRING:
             if "\\x" in node.value:
-                print("---->2: %s" % results)
                 return results
 
 
